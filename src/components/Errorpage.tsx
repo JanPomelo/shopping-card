@@ -1,6 +1,7 @@
 "use strict";
 import { Link } from "react-router-dom";
-
+import styles from "../styles/ErrorPage.module.scss";
+styles;
 const ErrorPage = () => {
   return (
     <div>
