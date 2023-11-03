@@ -1,0 +1,7 @@
+@use "mixins";
+
+.container {
+  @include mixins.flexBetween(column);
+  width: 100%;
+  padding: 0;
+}

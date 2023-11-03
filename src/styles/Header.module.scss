@@ -1,0 +1,13 @@
+@use "variables";
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.header {
+  color: variables.$brown;
+  background-color: variables.$orange;
+  padding: 0 1rem 0 1rem;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Pacifico", cursive;
+}

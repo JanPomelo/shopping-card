@@ -1,10 +1,15 @@
 "use strict";
 
+import Header from "../components/Header";
+import styles from "../styles/Root.module.scss";
+
 const Root = () => {
   return (
-    <>
-      <h1>Hello!</h1>
-    </>
+    <div className={styles.container}>
+      <Header />
+      <div></div>
+      <div></div>
+    </div>
   );
 };
 
