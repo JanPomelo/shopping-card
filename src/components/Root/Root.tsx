@@ -1,6 +1,6 @@
 "use strict";
 
-import Header from "../../Header/Header";
+import Header from "../Header/Header";
 import styles from "./Root.module.scss";
 
 const Root = () => {

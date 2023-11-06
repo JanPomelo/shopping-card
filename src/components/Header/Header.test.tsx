@@ -1,7 +1,7 @@
 import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Header from '../src/components/Header';
-import React from 'react';
+import Header from './Header';
+
 
 describe('Header Component', () => {
   it('renders ShopName', () => { 
