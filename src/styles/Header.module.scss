@@ -4,10 +4,12 @@
 .header {
   color: variables.$brown;
   background-color: variables.$orange;
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem 0rem 1rem;
   width: 100%;
 }
 
 h1 {
   font-family: "Pacifico", cursive;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
 }
