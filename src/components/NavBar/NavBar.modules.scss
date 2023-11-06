@@ -1,0 +1,6 @@
+@use 'mixins';
+
+.container {
+  @include mixins.flexCenter(row);
+  
+}

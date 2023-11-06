@@ -1,7 +1,7 @@
 "use strict";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ErrorPage from "./Errorpage";
-import Root from "../routes/Root";
+import ErrorPage from "./ErrorPage/Errorpage";
+import Root from "./Routes/Root/Root";
 
 const Router = () => {
   const router = createBrowserRouter([

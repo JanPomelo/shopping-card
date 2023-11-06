@@ -1,6 +1,6 @@
 "use strict";
 
-import styles from "../styles/Header.module.scss";
+import styles from "./Header.module.scss";
 styles;
 
 const Header = () => {
