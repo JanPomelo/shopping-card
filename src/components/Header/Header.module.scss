@@ -6,6 +6,8 @@
   background-color: variables.$orange;
   padding: 0 1rem 0rem 1rem;
   width: 100%;
+  border-bottom: 2px solid black;
+  box-shadow: 0px 5px 5px 5px adjust-color($color: variables.$orange, $hue: 0, $saturation: 100%, $lightness: -15%, $alpha: 1.0)
 }
 
 h1 {
