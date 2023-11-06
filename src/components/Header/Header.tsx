@@ -10,6 +10,7 @@ const Header = () => {
   console.log(page);
   function handleButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
     const button = e.target as HTMLButtonElement;
+    button.blur();
     setPage(button.innerText);
   }
 
@@ -18,6 +19,7 @@ const Header = () => {
       <h1>The Book Buffet</h1>
       <p>...because reading should be obtainable for everyone</p>
       <NavBar
+        page={page}
         onButtonClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           handleButtonClick(e);
         }}

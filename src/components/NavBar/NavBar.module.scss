@@ -2,5 +2,26 @@
 
 .container {
   @include mixins.flexCenter(row);
+  gap: 4rem;
+  button {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    padding: 0.2rem 0.5rem;
+
+    &:hover {
+      background-color: antiquewhite;
+    }
+    &:focus {
+      background-color: antiquewhite;
+      outline: none;
+    }
+  }
   
+  .selected {
+    //box-shadow: 0px 3px 5px 3px  rgb(255, 255, 255); /* Box shadow under the active button */
+  }
 }
+
