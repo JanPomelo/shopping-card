@@ -1,5 +1,5 @@
 interface NavBarProps {
-  onButtonClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onButtonClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   page: string;
 }
 
