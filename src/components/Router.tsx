@@ -10,6 +10,10 @@ const Router = () => {
       element: <Root />,
       errorElement: <ErrorPage />,
     },
+    {
+      path: "shop",
+      element: <Root />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
