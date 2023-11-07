@@ -8,7 +8,8 @@ styles;
 const Header = () => {
   const [page, setPage] = useState("Home");
   console.log(page);
-  function handleButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
+
+  function handleButtonClick(e: React.MouseEvent<HTMLAnchorElement>) {
     const button = e.target as HTMLButtonElement;
     button.blur();
     setPage(button.innerText);
@@ -16,11 +17,13 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <h1>The Book Buffet</h1>
-      <p>...because reading should be obtainable for everyone</p>
+      <div>
+        <h1>The Book Buffet</h1>
+        <p>...because reading should be obtainable for everyone</p>
+      </div>
       <NavBar
         page={page}
-        onButtonClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+        onButtonClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
           handleButtonClick(e);
         }}
       />

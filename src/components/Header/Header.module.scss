@@ -1,13 +1,17 @@
-@use '../../styles/variables';
+@use "../../styles/variables";
+@use "../../styles/mixins";
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 .header {
+  @include mixins.flexAround(row);
+  flex-wrap: wrap;
   color: variables.$brown;
   background-color: variables.$orange;
-  padding: 0 1rem 0rem 1rem;
-  width: 100%;
+  width: calc(100% - 4rem);
   border-bottom: 2px solid black;
-  box-shadow: 0px 5px 5px 5px adjust-color($color: variables.$orange, $hue: 0, $saturation: 100%, $lightness: -15%, $alpha: 1.0)
+  box-shadow: 0px 5px 5px 5px
+    adjust-color($color: variables.$orange, $hue: 0, $saturation: 100%, $lightness: -15%, $alpha: 1);
+  padding: 0px 2rem 0.5rem 2rem;
 }
 
 h1 {

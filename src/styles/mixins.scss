@@ -11,3 +11,10 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@mixin flexAround($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-around;
+  align-items: center;
+}
