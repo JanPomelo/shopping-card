@@ -1,7 +1,23 @@
 @use "../../styles/mixins";
 
-div {
+.container {
   @include mixins.flexCenter(column);
   padding: 1rem;
   text-align: center;
+  background-color: white;
+  position: absolute;
+  height: 120px;
+  left: calc(50vw - 160px);
+  top: calc(50vh - 60px);
+  width: calc(320px - 2rem);
+  border-radius: 50px;
+}
+
+.bg {
+  background-image: url(../../../public/errorPage.png);
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
