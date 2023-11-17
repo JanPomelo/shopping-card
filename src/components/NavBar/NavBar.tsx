@@ -8,14 +8,11 @@ const NavBar: React.FC<NavBarProps> = ({ onButtonClick, page }) => {
   return (
     page === "Shop" ? (
       <Link to="/" onClick={onButtonClick} className={styles.link}>
-        <div className={styles.bg}></div>
         Home
-        <div></div>
       </Link>
     ) : (
       <Link to="shop" onClick={onButtonClick} className={styles.link}>
-        <div className={styles.bg}></div>Shop
-        <div></div>
+        Shop
       </Link>
     )
   )
