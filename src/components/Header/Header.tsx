@@ -14,12 +14,16 @@ const Header = () => {
   }
 
   return (
+    <div className={styles.header}>
+      <img src="./rick.png" alt="Rick" />
+      <h1>Schwifty Shop</h1>
       <NavBar
         page={page}
         onButtonClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
           handleButtonClick(e);
         }}
       />
+    </div>
   );
 };
 

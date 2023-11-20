@@ -1,19 +1,19 @@
 @use "../../styles/mixins";
 @use "../../styles/variables";
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pacifico&display=swap');
 
 .link {
-  font-family: "Pacifico";
+  font-family: "Comic Neue";
   border: none;
   text-align: center;
   background-color: transparent;
   box-shadow: none;
-  color: black;
+  color: white;
   padding: 0.25rem;
-
   transition: box-shadow 0.2s, transform 0.2s;
   border-radius: 0.25rem;
   transform: scale(1);
+  width: 2.5rem;
 
 
   &:hover {
