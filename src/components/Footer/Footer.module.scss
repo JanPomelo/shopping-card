@@ -1,0 +1,34 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.container {
+  @include mixins.flexBetween(column);
+  width: 100%;
+  padding-top: 0.5rem;
+  background-color: black;
+  .content {
+    @include mixins.flexBetween(row);
+    padding: 0 1rem;
+    align-items: flex-start;
+    section {
+      @include mixins.flexStart(column);
+      align-items: start;
+      flex-grow: 1;
+      h2 {
+        font-size: 0.9rem;
+        margin: 0;
+      }
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  .warning {
+    font-weight: 700;
+    font-size: 0.7rem;
+  }
+}

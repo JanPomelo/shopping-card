@@ -18,3 +18,10 @@
   justify-content: space-around;
   align-items: center;
 }
+
+@mixin flexStart($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: flex-start;
+  align-items: center;
+}

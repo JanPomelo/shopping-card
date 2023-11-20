@@ -1,5 +1,6 @@
 "use strict";
 
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import styles from "./Root.module.scss";
 
@@ -17,6 +18,7 @@ const Root = () => {
           </p>
         </section>
       </div>
+      <Footer />
     </div>
   );
 };
