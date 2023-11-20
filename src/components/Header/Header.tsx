@@ -14,18 +14,12 @@ const Header = () => {
   }
 
   return (
-    <div className={styles.header}>
-      <div>
-        <h1>The Book Buffet</h1>
-        <p>...because reading should be obtainable for everyone</p>
-      </div>
       <NavBar
         page={page}
         onButtonClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
           handleButtonClick(e);
         }}
       />
-    </div>
   );
 };
 
