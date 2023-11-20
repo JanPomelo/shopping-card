@@ -7,8 +7,6 @@ styles;
 
 const Header = () => {
   const [page, setPage] = useState("Home");
-  console.log(page);
-
   function handleButtonClick(e: React.MouseEvent<HTMLAnchorElement>) {
     const button = e.target as HTMLButtonElement;
     button.blur();
