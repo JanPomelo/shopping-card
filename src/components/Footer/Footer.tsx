@@ -19,9 +19,9 @@ const Footer = () => {
         </section>
         <section>
           <h2>Terms and Conditions</h2>
-          <Link to='/terms-and-conditions'>Click here to read our terms and conditions.</Link>
+          <Link to='/terms-and-conditions' className={styles.link}>Click here to read our terms and conditions.</Link>
           <h2>FAQ</h2>
-          <Link to='/faq'>Click here to read through the frequentially asked questions.</Link>
+          <Link to='/faq' className={styles.link}>Click here to read through the frequentially asked questions.</Link>
         </section>
       </div>
       <p className={styles.warning}>This is NOT a real service! This is just a fake shop!</p>
