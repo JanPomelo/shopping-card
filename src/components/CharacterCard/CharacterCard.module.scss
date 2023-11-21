@@ -1,0 +1,47 @@
+@use "../../styles/mixins.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.container {
+  @include mixins.flexBetween(column);
+  background-color: white;
+  border-radius: 2rem;
+  color: black;
+  width: 220px;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+
+
+  img {
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2rem;
+    width: 100%;
+    height: 220px;
+  }
+  p,
+  h3 {
+    margin: 0;
+  }
+  h3 {
+    font-family: "Pacifico";
+    font-size: x-large;
+    text-align: center;
+  }
+
+  .nameDiv {
+    @include mixins.flexCenter(column);
+    height: 6.5rem;
+  }
+}
+
+.informations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: calc(100% - 3rem);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+
+  p {
+    font-size: larger;
+  }
+}
