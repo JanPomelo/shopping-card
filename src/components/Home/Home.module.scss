@@ -1,0 +1,35 @@
+@use "../../styles/mixins";
+
+.container {
+  @include mixins.flexBetween(column);
+  width: 100%;
+  padding: 0;
+  height: 100%;
+}
+
+.rootContainer {
+  padding: 1rem;
+  color: white;
+  flex-grow: 1;
+}
+
+.greeting {
+  @include mixins.flexAround(column);
+  border-radius: 3rem;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  padding: 0.5rem 1rem;
+  h2 {
+    text-align: center;
+  }
+  p {
+    text-align: justify;
+  }
+}
+
+h2 {
+  margin: 0;
+}
+
+.items {
+  @include mixins.flexBetween(column);
+}

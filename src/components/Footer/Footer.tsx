@@ -1,5 +1,6 @@
 "use strict";
 
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
 
 const Footer = () => {
@@ -18,9 +19,9 @@ const Footer = () => {
         </section>
         <section>
           <h2>Terms and Conditions</h2>
-          <p>Click here to read our terms and conditions.</p>
+          <Link to='/terms-and-conditions'>Click here to read our terms and conditions.</Link>
           <h2>FAQ</h2>
-          <p>Click here to read through the frequentially asked questions.</p>
+          <Link to='/faq'>Click here to read through the frequentially asked questions.</Link>
         </section>
       </div>
       <p className={styles.warning}>This is NOT a real service! This is just a fake shop!</p>
