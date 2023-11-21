@@ -11,10 +11,10 @@
     @include mixins.flexBetween(row);
     padding: 0 1rem;
     align-items: flex-start;
+    width: calc(100% - 2rem);
     section {
       @include mixins.flexStart(column);
       align-items: start;
-      flex-grow: 1;
       h2 {
         font-size: 0.9rem;
         margin: 0;
@@ -30,5 +30,11 @@
   .warning {
     font-weight: 700;
     font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    justify-content: space-around;
   }
 }
