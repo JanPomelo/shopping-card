@@ -1,27 +1,18 @@
 "use strict";
 
-import { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import styles from "./Header.module.scss";
+import HeaderProps from "./HeaderProps";
 styles;
 
-const Header = () => {
-  const [page, setPage] = useState("Home");
-  function handleButtonClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    const button = e.target as HTMLButtonElement;
-    button.blur();
-    setPage(button.innerText);
-  }
-
+const Header: React.FC<HeaderProps> = ({ page, onClick }) => {
   return (
     <div className={styles.header}>
       <img src="./rick.png" alt="Rick" />
       <h1>Schwifty Shop</h1>
       <NavBar
         page={page}
-        onButtonClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-          handleButtonClick(e);
-        }}
+        onButtonClick={onClick}
       />
     </div>
   );
