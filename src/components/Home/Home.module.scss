@@ -1,12 +1,5 @@
 @use "../../styles/mixins";
 
-.container {
-  @include mixins.flexBetween(column);
-  width: 100%;
-  padding: 0;
-  height: 100%;
-}
-
 .rootContainer {
   padding: 1rem;
   color: white;
