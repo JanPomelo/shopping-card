@@ -2,6 +2,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./ErrorPage/Errorpage";
 import Root from "./Root/Root";
+import Terms from "./Terms/Terms";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -9,10 +10,16 @@ const Router = () => {
       path: "/",
       element: <Root />,
       errorElement: <ErrorPage />,
-    },
-    {
-      path: "shop",
-      element: <Root />,
+      children: [
+        {
+          path: "shop",
+          element: <></>,
+        },
+        {
+          path: "Terms-and-conditions",
+          element: <Terms />,
+        },
+      ],
     },
   ]);
 
