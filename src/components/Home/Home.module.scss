@@ -26,3 +26,9 @@ h2 {
 .items {
   @include mixins.flexBetween(column);
 }
+
+.offers {
+  @include mixins.flexAround(row);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
