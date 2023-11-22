@@ -4,32 +4,18 @@ import { useState, useEffect } from "react";
 import styles from "./Home.module.scss";
 import Character from "../../types/character";
 import CharacterCard from "../CharacterCard/CharacterCard";
+import * as shlaami from 'rickmortyapi';
 
 const Home = () => {
   const [sale, setSale] = useState([] as Character[]);
-
   const [highlight, setHighlight] = useState([] as Character[]);
 
   useEffect(() => {
     const getData = async () => {
-      const charIDs: number[] = [88, 22, 810, 432, 398];
-      const highlights: number[] = [265, 244, 118];
-      const highlightChars: Character[] = [];
-      const chars: Character[] = [];
-      for (let i = 0; i < charIDs.length; i++) {
-        const url = "https://rickandmortyapi.com/api/character/" + charIDs[i];
-        const response = await fetch(url);
-        const data = await response.json();
-        chars.push(data);
-        if (i < 3) {
-          const url = "https://rickandmortyapi.com/api/character/" + highlights[i];
-          const response = await fetch(url);
-          const data = await response.json();
-          highlightChars.push(data);
-        }
-      }
-      setHighlight(highlightChars);
-      setSale(chars);
+      const sales = await shlaami.getCharacter([88, 22, 810, 432, 398]).then(data => data.data);
+      setSale(sales);
+      const highlights = await shlaami.getCharacter([265, 244, 118]).then(data => data.data);
+      setHighlight(highlights);
     };
     getData();
   }, []);
@@ -39,14 +25,14 @@ const Home = () => {
       <section className={styles.greeting}>
         <h2>Meet your favorite character!</h2>
         <p>
-          Have you ever thought about how cool it would be to drink a coffee with Mr. Kakapoopoo or go into another
+          Have you ever thought about how cool it would be to drink a coffee with Mr. Poopybutthole or go into another
           crazy universe together with Rick and Morty? Well, you can stop dreaming! Here in the Schwifty Shop, you can
           buy time with every single character from Rick and Morty and spend it however you want!
         </p>
       </section>
       <section>
         <h2>Limited offers!</h2>
-        <p>Meet with these characters for just 4.99 per hour! Limited offer!</p>
+        <p>Meet with these characters for just 4.99 flurbos per hour! Limited offer!</p>
         <div className={styles.offers}>
           {sale.map((char) => {
             return <CharacterCard char={char} />;
