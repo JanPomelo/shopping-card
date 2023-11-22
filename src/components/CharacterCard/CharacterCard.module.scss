@@ -27,6 +27,21 @@
     text-align: center;
   }
 
+  p {
+    position: relative;
+  }
+  .flurbo {
+    position: relative;
+    top: 0.25rem;
+    height: 1.3rem;
+    width: 1rem;
+    background-image: url(./flurbo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block
+  }
+
   .nameDiv {
     @include mixins.flexCenter(column);
     height: 6.5rem;
@@ -40,7 +55,8 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 0.5rem;
-
+  justify-items: center;
+  vertical-align: center;
   p {
     font-size: larger;
   }

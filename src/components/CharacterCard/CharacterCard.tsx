@@ -12,7 +12,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ char }) => {
       </div>
       <div className={styles.informations}>
         <p>Price:</p>
-        <p>4.99 $</p>
+        <p>499 <span className={styles.flurbo}></span></p>
       </div>
     </div>
   );
