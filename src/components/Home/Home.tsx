@@ -74,7 +74,7 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {sale.map((char) => {
-            return <CharacterCard char={char} price={499} sales={true} />;
+            return <CharacterCard char={char} price={499} sales={true} key={char.id} />;
           })}
         </div>
       </section>
@@ -85,7 +85,7 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {highlight.map((char) => {
-            return <CharacterCard char={char} price={1499} sales={false} />;
+            return <CharacterCard char={char} price={1499} sales={false} key={char.id} />;
           })}
         </div>
       </section>
