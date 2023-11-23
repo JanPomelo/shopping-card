@@ -13,9 +13,14 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ char, price, sales }) => 
       </div>
       <div className={styles.informations}>
         <p>Price:</p>
-        <p>
-          {price} <span className={styles.flurbo}></span>
-        </p>
+        <div>
+          <p>
+            {price} <span className={styles.flurbo}></span>
+          </p>
+          {sales ? <p className={styles.salesExtra}>
+            1499 <span className={styles.flurbo}></span><hr className={styles.crossLine} />
+          </p> : <></>}
+        </div>
       </div>
     </div>
   );
