@@ -3,7 +3,7 @@
 import styles from "./CharacterCard.module.scss";
 import CharacterCardProps from "./CharacterCardProps";
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ char }) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({ char, price }) => {
   return (
     <div className={styles.container}>
       <img src={char.image}></img>
@@ -12,7 +12,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ char }) => {
       </div>
       <div className={styles.informations}>
         <p>Price:</p>
-        <p>499 <span className={styles.flurbo}></span></p>
+        <p>{price} <span className={styles.flurbo}></span></p>
       </div>
     </div>
   );
