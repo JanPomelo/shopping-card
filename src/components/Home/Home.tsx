@@ -24,7 +24,6 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setSaleEnds(getCurrentSale());
-      console.log(getCurrentSale());
     }, 60 * 1000);
   }, [saleEnds]);
   useEffect(() => {
@@ -71,6 +70,7 @@ const Home = () => {
             Meet with these characters for just 499 flurbos per hour! Limited offer! Resets every day at midnight
             (GMT+7)
           </p>
+          <h3>Today's pick: Only {saleEnds} left</h3>
         </div>
         <div className={styles.offers}>
           {sale.map((char) => {
