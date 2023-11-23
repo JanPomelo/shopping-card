@@ -2,6 +2,21 @@
 @use "../../styles/variables";
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Pacifico&display=swap');
 
+.container {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  width: 50px;
+  height: 10px;
+  transform: rotate(-90deg);
+  top: 3.2rem;
+  background-image: url(/arrow.gif);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .link {
   font-family: "Comic Neue";
   border: none;
@@ -49,5 +64,13 @@
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .arrow {
+    transform: rotate(0deg);
+    top: 0.5rem;
+    right: 3.5rem;
   }
 }
