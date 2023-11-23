@@ -9,6 +9,8 @@
   width: calc(100% - 2rem);
   padding: 0 1rem;
   font-family: Pacifico;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 1;
 }
 
 img {
