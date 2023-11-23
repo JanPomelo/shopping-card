@@ -9,7 +9,10 @@ import * as job from "node-schedule";
 import * as fns from "date-fns";
 
 function getCurrentSale() {
-  const curMins = 60 - Number(fns.format(new Date(), "m"));
+  let curMins = 60 - Number(fns.format(new Date(), "m"));
+  if (curMins === 60) {
+    curMins = 0;
+  }
   const fullHour: number = curMins === 60 ? 0 : 1;
   const curHour = 24 - Number(fns.format(new Date(), "H")) - fullHour;
   return `${curHour} h ${curMins} min`;
