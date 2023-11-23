@@ -13,7 +13,7 @@ const Home = () => {
   const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
 
   useEffect(() => {
-    const jobbi = job.scheduleJob("2 * * * * *", () => {
+    const jobbi = job.scheduleJob("0 0 * * *", () => {
       const arr: number[] = [];
       while (arr.length < 5) {
         const num: number = Math.floor(Math.random() * 826 + 1);
@@ -28,7 +28,6 @@ const Home = () => {
         }
       }
       setNumbers(arr);
-      console.log(arr);
       job.cancelJob(jobbi);
     });
     const getData = async () => {
