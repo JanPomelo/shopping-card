@@ -6,14 +6,29 @@ import Character from "../../types/character";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import * as shlaami from "rickmortyapi";
 import * as job from "node-schedule";
+import * as fns from "date-fns";
+
+function getCurrentSale() {
+  const curMins = 60 - Number(fns.format(new Date(), "m"));
+  const fullHour: number = curMins === 60 ? 0 : 1;
+  const curHour = 24 - Number(fns.format(new Date(), "H")) - fullHour;
+  return `${curHour} h ${curMins} min`;
+}
 
 const Home = () => {
   const [sale, setSale] = useState([] as Character[]);
   const [highlight, setHighlight] = useState([] as Character[]);
   const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
+  const [saleEnds, setSaleEnds] = useState(getCurrentSale());
 
   useEffect(() => {
-    const jobbi = job.scheduleJob("0 0 * * *", () => {
+    setTimeout(() => {
+      setSaleEnds(getCurrentSale());
+      console.log(getCurrentSale());
+    }, 60 * 1000);
+  }, [saleEnds]);
+  useEffect(() => {
+    const jobbi = job.scheduleJob({ hour: 0, minute: 0 }, () => {
       const arr: number[] = [];
       while (arr.length < 5) {
         const num: number = Math.floor(Math.random() * 826 + 1);
@@ -52,11 +67,14 @@ const Home = () => {
       <section>
         <div className={styles.text}>
           <h2>Limited offers!</h2>
-          <p>Meet with these characters for just 499 flurbos per hour! Limited offer!</p>
+          <p>
+            Meet with these characters for just 499 flurbos per hour! Limited offer! Resets every day at midnight
+            (GMT+7)
+          </p>
         </div>
         <div className={styles.offers}>
           {sale.map((char) => {
-            return <CharacterCard char={char} price={499} />;
+            return <CharacterCard char={char} price={499} sales={true} />;
           })}
         </div>
       </section>
@@ -67,7 +85,7 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {highlight.map((char) => {
-            return <CharacterCard char={char} price={1499} />;
+            return <CharacterCard char={char} price={1499} sales={false} />;
           })}
         </div>
       </section>
