@@ -30,16 +30,13 @@
   p {
     position: relative;
   }
+
   .flurbo {
+    @include mixins.flurbo;
     position: relative;
     top: 0.25rem;
     height: 1.3rem;
     width: 1rem;
-    background-image: url(./flurbo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: inline-block;
   }
 
   .nameDiv {
