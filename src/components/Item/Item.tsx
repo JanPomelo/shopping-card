@@ -7,13 +7,13 @@ import * as shlaami from "rickmortyapi";
 import { useEffect, useState } from "react";
 import Character from "../../types/character";
 
-const Item = () => {
+const Item = ({ numbers }: { numbers: number[] }) => {
   const [char, setChar] = useState({
     name: "",
     species: "",
     origin: {
       name: "",
-      url: '',
+      url: "",
     },
     image: "",
     id: 0,
@@ -21,12 +21,12 @@ const Item = () => {
     gender: "unknown",
     episode: [],
     location: {
-      name: '',
-      url: '',
+      name: "",
+      url: "",
     },
-    url: '',
-    created: '',
-    type: '',
+    url: "",
+    created: "",
+    type: "",
   } as Character);
   const { id } = useParams();
   const iD = parseInt(id!);
@@ -39,6 +39,9 @@ const Item = () => {
     };
     getChar();
   }, [iD]);
+
+  char.price = numbers.includes(char.id) ? 499 : 1499;
+
   if (!iD || iD > 826 || iD < 1) {
     return <ErrorPage />;
   }
@@ -60,7 +63,7 @@ const Item = () => {
       <div className={styles.priceAndBook}>
         <div className={styles.priceTag}>
           <span className={styles.flurbo}></span>
-          <span>{char.price}</span>
+          <span className={styles.priceText}>{char.price}</span>
         </div>
         <div>
           <button className={styles.book}>Book time</button>
