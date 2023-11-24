@@ -48,9 +48,29 @@ const Home = () => {
       job.cancelJob(jobbi);
     });
     const getData = async () => {
-      const sales = await shlaami.getCharacter(numbers).then((data) => data.data);
+      const sales = await shlaami.getCharacter(numbers).then((data) => {
+        data.data.map((char: Character) => {
+          char.price = 499;
+        });
+        return data.data;
+      });
       setSale(sales);
-      const highlights = await shlaami.getCharacter([265, 244, 118]).then((data) => data.data);
+      const highlights = await shlaami.getCharacter([265, 244, 118]).then((data) => {
+        data.data.map((char: Character) => {
+          let inside: boolean = false;
+          for (let i = 0; i < numbers.length; i++) {
+            if (char.id === numbers[i]) {
+              inside = true;
+            }
+          }
+          if (!inside) {
+            char.price = 1499;
+          } else {
+            char.price = 499;
+          }
+        });
+        return data.data;
+      });
       setHighlight(highlights);
     };
     getData();
@@ -77,7 +97,7 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {sale.map((char) => {
-            return <CharacterCard char={char} price={499} sales={true} key={char.id} />;
+            return <CharacterCard char={char} sales={true} key={char.id} />;
           })}
         </div>
       </section>
@@ -88,7 +108,7 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {highlight.map((char) => {
-            return <CharacterCard char={char} price={1499} sales={false} key={char.id} />;
+            return <CharacterCard char={char} sales={false} key={char.id} />;
           })}
         </div>
       </section>

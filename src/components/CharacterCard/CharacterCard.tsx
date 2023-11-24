@@ -3,7 +3,7 @@
 import styles from "./CharacterCard.module.scss";
 import CharacterCardProps from "./CharacterCardProps";
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ char, price, sales }) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({ char, sales }) => {
   return (
     <div className={styles.container}>
       {sales ? <div className={styles.specialOffer}></div> : <></>}
@@ -15,11 +15,16 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ char, price, sales }) => 
         <p>Price:</p>
         <div>
           <p>
-            {price} <span className={styles.flurbo}></span>
+            {char.price} <span className={styles.flurbo}></span>
           </p>
-          {sales ? <div className={styles.salesExtra}>
-            1499 <span className={styles.flurbo}></span><hr className={styles.crossLine} />
-          </div> : <></>}
+          {sales ? (
+            <div className={styles.salesExtra}>
+              1499 <span className={styles.flurbo}></span>
+              <hr className={styles.crossLine} />
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
