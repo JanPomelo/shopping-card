@@ -1,19 +1,19 @@
 "use strict";
 
+import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import styles from "./Header.module.scss";
 import HeaderProps from "./HeaderProps";
 styles;
 
-const Header: React.FC<HeaderProps> = ({ page, onClick }) => {
+const Header: React.FC<HeaderProps> = ({ onClick }) => {
   return (
     <div className={styles.header}>
-      <img src="/rick.png" alt="Rick" />
+      <Link to="/">
+        <img src="/rick.png" alt="Rick" />
+      </Link>
       <h1>Schwifty Shop</h1>
-      <NavBar
-        page={page}
-        onButtonClick={onClick}
-      />
+      <NavBar onButtonClick={onClick} />
     </div>
   );
 };
