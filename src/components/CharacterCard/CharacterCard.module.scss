@@ -10,6 +10,12 @@
   width: 220px;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
   position: relative;
+  transform: scale(1);
+  transition: transform 0.2s linear;
+
+  &:hover {
+    transform: scale(1.1)
+  }
 
   img {
     border-top-left-radius: 2em;
