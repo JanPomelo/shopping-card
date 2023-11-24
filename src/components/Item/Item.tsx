@@ -33,11 +33,9 @@ const Item = () => {
   useEffect(() => {
     const getChar = async () => {
       const customChar = await shlaami.getCharacter(iD).then((data) => {
-        console.log(data);
         return data.data;
       });
       setChar(customChar);
-      console.log(customChar);
     };
     getChar();
   }, [iD]);
@@ -58,12 +56,6 @@ const Item = () => {
         <p>{char.status}</p>
         <p>Origin:</p>
         <p>{char.origin.name}</p>
-        <p>Episode Appereances:</p>
-        <p>
-          {char.episode.map((episode) => (
-            <span>{episode.substring(episode.lastIndexOf("/") + 1)} </span>
-          ))}
-        </p>
       </div>
       <div className={styles.priceAndBook}>
         <div className={styles.priceTag}>
