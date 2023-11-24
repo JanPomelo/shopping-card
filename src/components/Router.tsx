@@ -6,8 +6,32 @@ import Terms from "./Terms/Terms";
 import Faq from "./FAQ/Faq";
 import Home from "./Home/Home";
 import Item from "./Item/Item";
+import { useEffect, useState } from "react";
+import * as job from "node-schedule";
 
 const Router = () => {
+  const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
+
+  useEffect(() => {
+    const jobbi = job.scheduleJob({ hour: 0, minute: 0 }, () => {
+      const arr: number[] = [];
+      while (arr.length < 5) {
+        const num: number = Math.floor(Math.random() * 826 + 1);
+        let inside = false;
+        for (let j = 0; j < arr.length; j++) {
+          if (num === arr[j]) {
+            inside = true;
+          }
+        }
+        if (!inside) {
+          arr.push(num);
+        }
+      }
+      setNumbers(arr);
+      job.cancelJob(jobbi);
+    });
+  });
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -16,7 +40,7 @@ const Router = () => {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <Home numbers={numbers} />,
         },
         {
           path: "shop",
@@ -24,7 +48,7 @@ const Router = () => {
         },
         {
           path: "/shop/:id",
-          element: <Item />,
+          element: <Item numbers={numbers} />,
         },
         {
           path: "Terms-and-conditions",

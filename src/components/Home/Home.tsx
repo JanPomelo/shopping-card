@@ -5,7 +5,6 @@ import styles from "./Home.module.scss";
 import Character from "../../types/character";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import * as shlaami from "rickmortyapi";
-import * as job from "node-schedule";
 import * as fns from "date-fns";
 
 function getCurrentSale() {
@@ -18,10 +17,9 @@ function getCurrentSale() {
   return `${curHour} h ${curMins} min`;
 }
 
-const Home = () => {
+const Home = ({ numbers }: { numbers: number[] }) => {
   const [sale, setSale] = useState([] as Character[]);
   const [highlight, setHighlight] = useState([] as Character[]);
-  const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
   const [saleEnds, setSaleEnds] = useState(getCurrentSale());
 
   useEffect(() => {
@@ -30,23 +28,6 @@ const Home = () => {
     }, 60 * 1000);
   }, [saleEnds]);
   useEffect(() => {
-    const jobbi = job.scheduleJob({ hour: 0, minute: 0 }, () => {
-      const arr: number[] = [];
-      while (arr.length < 5) {
-        const num: number = Math.floor(Math.random() * 826 + 1);
-        let inside = false;
-        for (let j = 0; j < arr.length; j++) {
-          if (num === arr[j]) {
-            inside = true;
-          }
-        }
-        if (!inside) {
-          arr.push(num);
-        }
-      }
-      setNumbers(arr);
-      job.cancelJob(jobbi);
-    });
     const getData = async () => {
       const sales = await shlaami.getCharacter(numbers).then((data) => {
         data.data.map((char: Character) => {
@@ -97,9 +78,7 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {sale.map((char) => {
-            return (
-                <CharacterCard char={char} sales={true} key={char.id} />
-            );
+            return <CharacterCard char={char} sales={true} key={char.id} />;
           })}
         </div>
       </section>
@@ -110,9 +89,7 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {highlight.map((char) => {
-            return (
-                <CharacterCard char={char} sales={false} key={char.id} />
-            );
+            return <CharacterCard char={char} sales={false} key={char.id} />;
           })}
         </div>
       </section>
