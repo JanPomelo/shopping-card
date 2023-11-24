@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  width: calc(100% - 2rem);
+  padding: 1rem;
+  img {
+    aspect-ratio: 1;
+    width: calc(100% - 2rem);
+    height: auto;
+    border-radius: 2rem;
+    border: 5px black solid;
+
+  }
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1rem;
+  font-weight: bold;
+  font-size: large;
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    grid-template-columns: 1fr 2fr;
+  }
+}
