@@ -97,7 +97,9 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {sale.map((char) => {
-            return <CharacterCard char={char} sales={true} key={char.id} />;
+            return (
+                <CharacterCard char={char} sales={true} key={char.id} />
+            );
           })}
         </div>
       </section>
@@ -108,7 +110,9 @@ const Home = () => {
         </div>
         <div className={styles.offers}>
           {highlight.map((char) => {
-            return <CharacterCard char={char} sales={false} key={char.id} />;
+            return (
+                <CharacterCard char={char} sales={false} key={char.id} />
+            );
           })}
         </div>
       </section>
