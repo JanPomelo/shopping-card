@@ -1,0 +1,21 @@
+@use "../../styles/mixins.scss";
+
+.container {
+  @include mixins.flexStart(column);
+  align-items: flex-start;
+  gap: 0.2rem;
+  margin-bottom: 2rem;
+  input {
+    width: min(320px, calc(100% - 0.3rem));
+    margin-right: 0.3rem;
+  }
+}
+
+.searchBy {
+  @include mixins.flexStart(row);
+  gap: 0.5rem;
+  width: min(320px, 100%);
+  select {
+    flex-grow: 1;
+  }
+}
