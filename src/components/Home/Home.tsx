@@ -6,6 +6,7 @@ import Character from "../../types/character";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import * as shlaami from "rickmortyapi";
 import * as fns from "date-fns";
+import checkSale from "../../globalFunctions";
 
 function getCurrentSale() {
   let curMins = 60 - Number(fns.format(new Date(), "m"));
@@ -31,24 +32,14 @@ const Home = ({ numbers }: { numbers: number[] }) => {
     const getData = async () => {
       const sales = await shlaami.getCharacter(numbers).then((data) => {
         data.data.map((char: Character) => {
-          char.price = 499;
+          checkSale(char, numbers);
         });
         return data.data;
       });
       setSale(sales);
       const highlights = await shlaami.getCharacter([265, 244, 118]).then((data) => {
         data.data.map((char: Character) => {
-          let inside: boolean = false;
-          for (let i = 0; i < numbers.length; i++) {
-            if (char.id === numbers[i]) {
-              inside = true;
-            }
-          }
-          if (!inside) {
-            char.price = 1499;
-          } else {
-            char.price = 499;
-          }
+          checkSale(char, numbers);
         });
         return data.data;
       });
@@ -78,7 +69,7 @@ const Home = ({ numbers }: { numbers: number[] }) => {
         </div>
         <div className={styles.offers}>
           {sale.map((char) => {
-            return <CharacterCard char={char} sales={true} key={char.id} />;
+            return <CharacterCard char={char} key={char.id} />;
           })}
         </div>
       </section>
@@ -89,7 +80,7 @@ const Home = ({ numbers }: { numbers: number[] }) => {
         </div>
         <div className={styles.offers}>
           {highlight.map((char) => {
-            return <CharacterCard char={char} sales={false} key={char.id} />;
+            return <CharacterCard char={char} key={char.id} />;
           })}
         </div>
       </section>

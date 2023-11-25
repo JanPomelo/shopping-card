@@ -45,7 +45,7 @@ const Router = () => {
         },
         {
           path: "shop",
-          element: <Shop />,
+          element: <Shop numbers={numbers} />,
         },
         {
           path: "/shop/:id",

@@ -1,7 +1,7 @@
 type Character = {
   name: string;
   species: string;
-  gender: 'unknown' | 'Male' | 'Female' | "Genderless";
+  gender: "unknown" | "Male" | "Female" | "Genderless";
   origin: {
     name: string;
     url: string;
@@ -10,14 +10,15 @@ type Character = {
   location: {
     name: string;
     url: string;
-  }
+  };
   image: string;
   id: number;
-  status: "unknown" | 'Dead' | 'Alive';
+  status: "unknown" | "Dead" | "Alive";
   episode: string[];
   url: string;
   created: string;
   price?: number;
+  sale?: boolean;
 };
 
 export default Character;

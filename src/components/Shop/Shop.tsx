@@ -5,7 +5,8 @@ import styles from "./Shop.module.scss";
 import * as shlaami from "rickmortyapi";
 import Character from "../../types/character";
 import CharacterCard from "../CharacterCard/CharacterCard";
-const Shop = () => {
+import checkSale from "../../globalFunctions";
+const Shop = ({ numbers }: { numbers: number[] }) => {
   // Searchbar
   // sort and filter options
   // items
@@ -29,20 +30,20 @@ const Shop = () => {
       const allChars: Character[] = [];
       await shlaami.getCharacters({ page: page }).then((data) => {
         data.data!.results!.map((char) => {
+          checkSale(char, numbers);
           allChars.push(char);
         });
       });
-      console.log(allChars);
       setCharacters(allChars as Character[]);
     };
     getData();
-  }, [page]);
+  }, [page, numbers]);
   return (
     <div className={styles.container}>
       <div className={styles.itemDiv}>
         <div className={styles.offers}>
           {characters.map((character) => (
-            <CharacterCard char={character} sales={false}></CharacterCard>
+            <CharacterCard char={character}></CharacterCard>
           ))}
         </div>
         <div className={styles.buttons}>

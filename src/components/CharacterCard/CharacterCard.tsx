@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import styles from "./CharacterCard.module.scss";
 import CharacterCardProps from "./CharacterCardProps";
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ char, sales }) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({ char }) => {
   return (
     <Link to={"/shop/" + char.id}>
       <div className={styles.container}>
-        {sales ? <div className={styles.specialOffer}></div> : <></>}
+        {char.sale ? <div className={styles.specialOffer}></div> : <></>}
         <img src={char.image}></img>
         <div className={styles.nameDiv}>
           <h3>{char.name}</h3>
@@ -19,7 +19,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ char, sales }) => {
             <p>
               {char.price} <span className={styles.flurbo}></span>
             </p>
-            {sales ? (
+            {char.sale ? (
               <div className={styles.salesExtra}>
                 1499 <span className={styles.flurbo}></span>
                 <hr className={styles.crossLine} />
