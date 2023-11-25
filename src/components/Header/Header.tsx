@@ -8,7 +8,7 @@ styles;
 
 const Header: React.FC<HeaderProps> = ({ onClick }) => {
   return (
-    <div className={styles.header}>
+    <div className={styles.header} id='header'>
       <Link to="/">
         <img src="/rick.png" alt="Rick" />
       </Link>

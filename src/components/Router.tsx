@@ -8,10 +8,10 @@ import Home from "./Home/Home";
 import Item from "./Item/Item";
 import { useEffect, useState } from "react";
 import * as job from "node-schedule";
+import Shop from "./Shop/Shop";
 
 const Router = () => {
   const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
-  
 
   useEffect(() => {
     const jobbi = job.scheduleJob({ hour: 0, minute: 0 }, () => {
@@ -45,7 +45,7 @@ const Router = () => {
         },
         {
           path: "shop",
-          element: <></>,
+          element: <Shop />,
         },
         {
           path: "/shop/:id",
