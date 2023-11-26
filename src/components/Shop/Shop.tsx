@@ -68,7 +68,7 @@ const Shop = ({ numbers }: { numbers: number[] }) => {
       <div className={styles.itemDiv}>
         <div className={styles.offers}>
           {characters.map((character) => (
-            <CharacterCard char={character} key={character.id}></CharacterCard>
+            <CharacterCard char={character} key={character.id} ></CharacterCard>
           ))}
         </div>
         <div className={styles.buttons}>
