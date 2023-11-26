@@ -10,7 +10,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({ onSearch }) => {
         <button className={styles.searchBut} onClick={onSearch}>
           Search
         </button>
-        <input type="text" placeholder="Search" id="inputSearch" />
+        <input type="text" placeholder="Character Name" id="inputSearch" />
       </div>
     </div>
   );
