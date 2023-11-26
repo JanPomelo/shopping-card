@@ -14,10 +14,15 @@ const Shop = ({ numbers }: { numbers: number[] }) => {
   const [characters, setCharacters] = useState([] as Character[]);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [nextAndPrev, setNextAndPrev] = useState({ next: null, previous: null } as {
+    next: null | string;
+    previous: null | string;
+  });
 
   const onSearch = () => {
     const searchInput: HTMLInputElement = document.getElementById("inputSearch") as HTMLInputElement;
     setSearch(searchInput.value);
+    setPage(1);
   };
 
   const onButtonNextClick = () => {
@@ -38,18 +43,22 @@ const Shop = ({ numbers }: { numbers: number[] }) => {
       const options: { page?: number; name?: string } = {};
       if (search !== "") {
         options.name = search;
-        options.page = 1;
-        setPage(1);
+        options.page = page;
       } else {
         options.page = page;
       }
+      let next: string | null = null;
+      let prev: string | null = null;
       await shlaami.getCharacters(options).then((data) => {
+        next = data.data.info!.next;
+        prev = data.data.info!.prev;
         data.data!.results!.map((char) => {
           checkSale(char, numbers);
           allChars.push(char);
         });
       });
       setCharacters(allChars as Character[]);
+      setNextAndPrev({ next: next, previous: prev });
     };
     getData();
   }, [page, numbers, search]);
@@ -59,13 +68,17 @@ const Shop = ({ numbers }: { numbers: number[] }) => {
       <div className={styles.itemDiv}>
         <div className={styles.offers}>
           {characters.map((character) => (
-            <CharacterCard char={character}></CharacterCard>
+            <CharacterCard char={character} key={character.id}></CharacterCard>
           ))}
         </div>
         <div className={styles.buttons}>
-          {page < 2 ? (
-            <button className={styles.next} onClick={onButtonNextClick}></button>
-          ) : page > 41 ? (
+          {!nextAndPrev.previous ? (
+            !nextAndPrev.next ? (
+              <></>
+            ) : (
+              <button className={styles.next} onClick={onButtonNextClick}></button>
+            )
+          ) : !nextAndPrev.next ? (
             <button className={styles.previous} onClick={onButtonPreviousClick}></button>
           ) : (
             <div className={styles.twoButtons}>
