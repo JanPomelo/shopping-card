@@ -13,6 +13,12 @@ const Shop = ({ numbers }: { numbers: number[] }) => {
   // items
   const [characters, setCharacters] = useState([] as Character[]);
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
+
+  const onSearch = () => {
+    const searchInput: HTMLInputElement = document.getElementById("inputSearch") as HTMLInputElement;
+    setSearch(searchInput.value);
+  };
 
   const onButtonNextClick = () => {
     setPage(page + 1);
@@ -29,7 +35,15 @@ const Shop = ({ numbers }: { numbers: number[] }) => {
   useEffect(() => {
     const getData = async () => {
       const allChars: Character[] = [];
-      await shlaami.getCharacters({ page: page }).then((data) => {
+      const options: { page?: number; name?: string } = {};
+      if (search !== "") {
+        options.name = search;
+        options.page = 1;
+        setPage(1);
+      } else {
+        options.page = page;
+      }
+      await shlaami.getCharacters(options).then((data) => {
         data.data!.results!.map((char) => {
           checkSale(char, numbers);
           allChars.push(char);
@@ -38,10 +52,10 @@ const Shop = ({ numbers }: { numbers: number[] }) => {
       setCharacters(allChars as Character[]);
     };
     getData();
-  }, [page, numbers]);
+  }, [page, numbers, search]);
   return (
     <div className={styles.container}>
-      <SearchAndFilter/>
+      <SearchAndFilter onSearch={onSearch} />
       <div className={styles.itemDiv}>
         <div className={styles.offers}>
           {characters.map((character) => (

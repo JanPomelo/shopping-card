@@ -1,19 +1,17 @@
 "use strict";
 
 import styles from "./SearchAndFilter.module.scss";
+import SearchAndFilterProps from "./SearchAndFilterProps";
 
-const SearchAndFilter = () => {
+const SearchAndFilter: React.FC<SearchAndFilterProps> = ({ onSearch }) => {
   return (
     <div className={styles.container}>
       <div className={styles.searchBy}>
-        <label htmlFor="option">Search by: </label>
-        <select name="option" id="option">
-          <option value="name">Name</option>
-          <option value="location">Location</option>
-          <option value="episode">Episode</option>
-        </select>
+        <button className={styles.searchBut} onClick={onSearch}>
+          Search
+        </button>
+        <input type="text" placeholder="Search" id="inputSearch" />
       </div>
-      <input type="text" placeholder="Search" />
     </div>
   );
 };
