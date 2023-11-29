@@ -9,7 +9,7 @@ styles;
 const Header: React.FC<HeaderProps> = ({ onClick }) => {
   return (
     <div className={styles.header} id='header'>
-      <Link to="/">
+      <Link to="/" className={styles.img}>
         <img src="/rick.png" alt="Rick" />
       </Link>
       <h1>Schwifty Shop</h1>

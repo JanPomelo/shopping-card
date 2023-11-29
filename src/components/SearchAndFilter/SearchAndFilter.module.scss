@@ -1,5 +1,5 @@
 @use "../../styles/mixins.scss";
-
+@import '../../styles/variables.scss';
 .container {
   @include mixins.flexStart(column);
   gap: 0.2rem;
@@ -19,7 +19,7 @@
     border-bottom-right-radius: 1rem;
     font-size: 1.3rem;
     &:focus {
-      background-color: #0058a1;
+      background-color: $rickBlue;
       outline: none;
       color: white;
     }
