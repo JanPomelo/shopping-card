@@ -65,9 +65,9 @@ const Item = ({ numbers }: { numbers: number[] }) => {
           <span className={styles.flurbo}></span>
           <span className={styles.priceText}>{char.price}</span>
         </div>
-        <div>
-          <button className={styles.book}>Book time</button>
-          <select name="hours" id="hours">
+        <div className={styles.bookButtons}>
+          <button className={styles.book}>Book hours</button>
+          <select name="hours" id="hours" className={styles.bookHours}>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

@@ -71,6 +71,49 @@
   height: 50px;
 }
 
+.book {
+  background-color: white;
+  border: none;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  height: 100%;
+  font-size: larger;
+  padding: 0 0.5rem;
+  box-shadow: 0 2px 4px rgba(207, 207, 207, 0.788);
+  transition: box-shadow 300ms linear;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0px 10px 3px rgb(0, 238, 255);
+  }
+}
+
+.bookButtons {
+  @include mixins.flexBetween(row);
+  height: 2rem;
+  margin-top: 0.5rem;
+}
+
+.bookHours {
+  height: 100%;
+  border: none;
+  background-color: white;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding-left: 1rem;
+  border-left: 2px black solid;
+  font-size: larger;
+  box-shadow: 0 2px 4px rgba(207, 207, 207, 0.788);
+  transition: box-shadow 300ms linear;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0px 10px 3px rgb(0, 238, 255);
+  }
+}
+
 @media screen and (min-width: 600px) {
   .container {
     grid-template-columns: 1fr 2fr;
