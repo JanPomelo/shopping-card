@@ -7,7 +7,7 @@ import * as shlaami from "rickmortyapi";
 import { useEffect, useState } from "react";
 import Character from "../../types/character";
 
-const Item = ({ numbers }: { numbers: number[] }) => {
+const Item = ({ numbers, onBookClick }: { numbers: number[]; onBookClick: () => void }) => {
   const [char, setChar] = useState({
     name: "",
     species: "",
@@ -66,7 +66,9 @@ const Item = ({ numbers }: { numbers: number[] }) => {
           <span className={styles.priceText}>{char.price}</span>
         </div>
         <div className={styles.bookButtons}>
-          <button className={styles.book}>Book hours</button>
+          <button className={styles.book} onClick={onBookClick}>
+            Book hours
+          </button>
           <select name="hours" id="hours" className={styles.bookHours}>
             <option value="1">1</option>
             <option value="2">2</option>

@@ -19,6 +19,7 @@ type Character = {
   created: string;
   price?: number;
   sale?: boolean;
+  hours?: number;
 };
 
 export default Character;

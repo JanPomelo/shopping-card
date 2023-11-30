@@ -9,10 +9,23 @@ import Item from "./Item/Item";
 import { useEffect, useState } from "react";
 import * as job from "node-schedule";
 import Shop from "./Shop/Shop";
+import Character from "../types/character";
+import * as shlaami from "rickmortyapi";
 
 const Router = () => {
   const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
-  const [hours, setHours] = useState(0);
+  const [card, setCard] = useState([] as Character[]);
+
+  const bookHours = async () => {
+    const locationPath = window.location.pathname;
+    const location: number = Number(locationPath.substring(locationPath.lastIndexOf("/") + 1));
+    const char: Character = await shlaami.getCharacter(location).then((data) => {
+      return data.data;
+    });
+    const newChars = [...card];
+    newChars.push(char);
+    setCard(newChars);
+  };
 
   useEffect(() => {
     const jobbi = job.scheduleJob({ hour: 0, minute: 0 }, () => {
@@ -37,7 +50,7 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root hours={hours} />,
+      element: <Root card={card} />,
       errorElement: <ErrorPage />,
       children: [
         {
@@ -50,7 +63,14 @@ const Router = () => {
         },
         {
           path: "/shop/:id",
-          element: <Item numbers={numbers} />,
+          element: (
+            <Item
+              numbers={numbers}
+              onBookClick={() => {
+                bookHours();
+              }}
+            />
+          ),
         },
         {
           path: "Terms-and-conditions",

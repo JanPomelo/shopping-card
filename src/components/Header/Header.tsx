@@ -6,10 +6,10 @@ import HeaderProps from "./HeaderProps";
 import Card from "../Card/Card";
 styles;
 
-const Header: React.FC<HeaderProps> = ({ onClick, hours }) => {
+const Header: React.FC<HeaderProps> = ({ onClick, card }) => {
   return (
     <div className={styles.header} id="header">
-      <Card hours={hours} />
+      <Card card={card} />
       <h1>Schwifty Shop</h1>
       <NavBar onButtonClick={onClick} />
     </div>

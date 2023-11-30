@@ -1,6 +1,8 @@
+import Character from "../../types/character";
+
 interface HeaderProps {
   onClick: React.MouseEventHandler<HTMLAnchorElement>;
-  hours: number;
+  card: Character[];
 }
 
 export default HeaderProps;

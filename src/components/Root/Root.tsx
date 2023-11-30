@@ -4,8 +4,9 @@ import { Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import styles from "./Root.module.scss";
+import Character from "../../types/character";
 
-const Root = ({ hours }: { hours: number }) => {
+const Root = ({ card }: { card: Character[] }) => {
   function handleButtonClick(e: React.MouseEvent<HTMLAnchorElement>) {
     const button = e.target as HTMLButtonElement;
     button.blur();
@@ -17,7 +18,7 @@ const Root = ({ hours }: { hours: number }) => {
         onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
           handleButtonClick(e);
         }}
-        hours={hours}
+        card={card}
       />
       <Outlet />
       <Footer />
