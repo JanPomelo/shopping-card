@@ -12,6 +12,7 @@ import Shop from "./Shop/Shop";
 
 const Router = () => {
   const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
+  const [hours, setHours] = useState(0);
 
   useEffect(() => {
     const jobbi = job.scheduleJob({ hour: 0, minute: 0 }, () => {
@@ -36,7 +37,7 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root />,
+      element: <Root hours={hours} />,
       errorElement: <ErrorPage />,
       children: [
         {

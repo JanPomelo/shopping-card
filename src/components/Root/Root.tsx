@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import styles from "./Root.module.scss";
 
-const Root = () => {
+const Root = ({ hours }: { hours: number }) => {
   function handleButtonClick(e: React.MouseEvent<HTMLAnchorElement>) {
     const button = e.target as HTMLButtonElement;
     button.blur();
@@ -17,6 +17,7 @@ const Root = () => {
         onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
           handleButtonClick(e);
         }}
+        hours={hours}
       />
       <Outlet />
       <Footer />
