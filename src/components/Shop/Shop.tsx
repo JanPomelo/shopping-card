@@ -7,7 +7,7 @@ import Character from "../../types/character";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import checkSale from "../../globalFunctions";
 import SearchAndFilter from "../SearchAndFilter/SearchAndFilter";
-import Card from "../Card/Card";
+
 const Shop = ({ numbers }: { numbers: number[] }) => {
   // Searchbar
   // sort and filter options
@@ -65,7 +65,6 @@ const Shop = ({ numbers }: { numbers: number[] }) => {
   }, [page, numbers, search]);
   return (
     <div className={styles.container}>
-      <Card />
       <SearchAndFilter onSearch={onSearch} />
       <div className={styles.itemDiv}>
         <div className={styles.offers}>
