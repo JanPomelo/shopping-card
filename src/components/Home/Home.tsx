@@ -7,6 +7,7 @@ import CharacterCard from "../CharacterCard/CharacterCard";
 import * as shlaami from "rickmortyapi";
 import * as fns from "date-fns";
 import checkSale from "../../globalFunctions";
+import Card from "../Card/Card";
 
 function getCurrentSale() {
   let curMins = 60 - Number(fns.format(new Date(), "m"));
@@ -50,6 +51,7 @@ const Home = ({ numbers }: { numbers: number[] }) => {
 
   return (
     <div className={styles.rootContainer}>
+      <Card />
       <section className={styles.greeting}>
         <h2>Meet your favorite character!</h2>
         <p>

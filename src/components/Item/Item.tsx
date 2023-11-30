@@ -6,6 +6,7 @@ import ErrorPage from "../ErrorPage/Errorpage";
 import * as shlaami from "rickmortyapi";
 import { useEffect, useState } from "react";
 import Character from "../../types/character";
+import Card from "../Card/Card";
 
 const Item = ({ numbers }: { numbers: number[] }) => {
   const [char, setChar] = useState({
@@ -47,6 +48,7 @@ const Item = ({ numbers }: { numbers: number[] }) => {
   }
   return (
     <div className={styles.container}>
+      <Card />
       <img src={char.image} />
       <div className={styles.table}>
         <p>Name:</p>

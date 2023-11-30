@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 .container {
+  position: relative;
   display: grid;
   grid-template-rows: 1fr 1fr;
   width: calc(100% - 2rem);

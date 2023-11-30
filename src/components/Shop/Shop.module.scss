@@ -1,5 +1,6 @@
 @use "../../styles/mixins.scss";
 .container {
+  position: relative;
   padding: 1rem;
   color: white;
   flex-grow: 1;
