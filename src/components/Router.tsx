@@ -11,15 +11,22 @@ import * as job from "node-schedule";
 import Shop from "./Shop/Shop";
 import Character from "../types/character";
 import * as shlaami from "rickmortyapi";
+import ShoppingCard from "./Shopping-Card/ShoppingCard";
+import checkSale from "../globalFunctions";
 
 const Router = () => {
   const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
   const [card, setCard] = useState([] as Character[]);
 
   const bookHours = async () => {
+    const hourSelect: HTMLSelectElement = document.getElementById("hours") as HTMLSelectElement;
+    const hours = Number(hourSelect.value);
     const locationPath = window.location.pathname;
     const location: number = Number(locationPath.substring(locationPath.lastIndexOf("/") + 1));
     const char: Character = await shlaami.getCharacter(location).then((data) => {
+      const char: Character = data.data;
+      checkSale(char, numbers);
+      char.hours = hours;
       return data.data;
     });
     const newChars = [...card];
@@ -79,6 +86,10 @@ const Router = () => {
         {
           path: "faq",
           element: <Faq />,
+        },
+        {
+          path: "shopping-card",
+          element: <ShoppingCard card={card} />,
         },
       ],
     },
