@@ -54,6 +54,7 @@ const Router = () => {
     const index = Number(button.id.substring(0, button.id.lastIndexOf("-")));
     const newCard = [...card];
     newCard[index].hours!++;
+    button.blur();
     setCard(newCard);
   };
 
@@ -66,6 +67,7 @@ const Router = () => {
     } else {
       newCard[index].hours!--;
     }
+    button.blur();
     setCard(newCard);
   };
 
