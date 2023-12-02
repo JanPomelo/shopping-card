@@ -1,0 +1,22 @@
+@use "../../styles/mixins.scss";
+
+.container {
+  @include mixins.flexStart(column);
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  padding: 0 1rem;
+  flex-grow: 1;
+  width: 100%;
+  .qaContainer {
+    width: calc(100% - 4rem);
+    text-align: start;
+    padding: 0 2rem;
+
+    p {
+      margin: 0.2rem;
+    }
+    p:first-of-type {
+      font-weight: bold;
+    }
+  }
+
+}
