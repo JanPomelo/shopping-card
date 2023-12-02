@@ -29,9 +29,44 @@ const Router = () => {
       char.hours = hours;
       return data.data;
     });
-    const newChars = [...card];
-    newChars.push(char);
+    let newChars = [] as Character[];
+    if (checkCardForExist(char)) {
+      newChars = [...card];
+    } else {
+      newChars = [...card];
+      newChars.push(char);
+    }
     setCard(newChars);
+  };
+
+  const checkCardForExist = (char: Character): boolean => {
+    for (let i = 0; i < card.length; i++) {
+      if (card[i].id === char.id) {
+        card[i].hours! += char.hours!;
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const plusClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.target as HTMLButtonElement;
+    const index = Number(button.id.substring(0, button.id.lastIndexOf("-")));
+    const newCard = [...card];
+    newCard[index].hours!++;
+    setCard(newCard);
+  };
+
+  const minusClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.target as HTMLButtonElement;
+    const index = Number(button.id.substring(0, button.id.lastIndexOf("-")));
+    const newCard = [...card];
+    if (newCard[index].hours! < 2) {
+      newCard.splice(index, 1);
+    } else {
+      newCard[index].hours!--;
+    }
+    setCard(newCard);
   };
 
   useEffect(() => {
@@ -89,7 +124,17 @@ const Router = () => {
         },
         {
           path: "shopping-card",
-          element: <ShoppingCard card={card} />,
+          element: (
+            <ShoppingCard
+              card={card}
+              plusClick={(e) => {
+                plusClick(e);
+              }}
+              minusClick={(e) => {
+                minusClick(e);
+              }}
+            />
+          ),
         },
       ],
     },
