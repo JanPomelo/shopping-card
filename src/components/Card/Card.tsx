@@ -14,7 +14,7 @@ const Card = ({ card }: { card: Character[] }) => {
         link.blur();
       }}
     >
-      <div tabIndex={1} className={styles.wheeli}>
+      <div className={styles.wheeli}>
         <div className={styles.hours}>
           <span className={card.length < 10 ? styles.underTen : styles.moreTen}>{card.length}</span>
         </div>
