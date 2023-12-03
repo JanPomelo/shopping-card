@@ -10,10 +10,10 @@ This project was done for the The Odin Project curriculum in the React Course, w
 
 ## Tools used
 
-    React.js
-    Sass
-    TypeScript
-    Vite.js
+- React.js
+- Sass
+- TypeScript
+- Vite.js
 
 ### Future Implementations
 
@@ -33,7 +33,7 @@ The data and images are fetched from the following API:
 
 All SVGs for the buttons (music, SFX) are from the following source:
 
-    https://www.svgrepo.com
+- https://www.svgrepo.com
 
 ## License
 
