@@ -6,8 +6,8 @@ import Terms from "./Terms/Terms";
 import Faq from "./FAQ/Faq";
 import Home from "./Home/Home";
 import Item from "./Item/Item";
-import { useEffect, useState } from "react";
-import * as job from "node-schedule";
+import { useState } from "react";
+//import * as job from "node-schedule";
 import Shop from "./Shop/Shop";
 import Character from "../types/character";
 import * as shlaami from "rickmortyapi";
@@ -15,7 +15,8 @@ import ShoppingCard from "./Shopping-Card/ShoppingCard";
 import checkSale from "../globalFunctions";
 
 const Router = () => {
-  const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
+  // const [numbers, setNumbers] = useState([88, 22, 810, 432, 398]);
+  const numbers = [88, 22, 810, 432, 398];
   const [card, setCard] = useState([] as Character[]);
 
   const bookHours = async () => {
@@ -71,7 +72,7 @@ const Router = () => {
     setCard(newCard);
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     const jobbi = job.scheduleJob({ hour: 0, minute: 0 }, () => {
       const arr: number[] = [];
       while (arr.length < 5) {
@@ -89,8 +90,8 @@ const Router = () => {
       setNumbers(arr);
       job.cancelJob(jobbi);
     });
-  });
-
+  }, );
+*/
   const router = createBrowserRouter([
     {
       path: "/",
