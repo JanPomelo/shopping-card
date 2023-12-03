@@ -10,10 +10,10 @@ This project was done for the The Odin Project curriculum in the React Course, w
 
 ## Tools used
 
-- React.js
-- Sass
-- TypeScript
-- Vite.js
+- <img src="https://www.svgrepo.com/show/452092/react.svg" height=12px /> React.js
+- <img src="https://www.svgrepo.com/show/354310/sass.svg" height=12px /> Sass
+- <img src="https://www.svgrepo.com/show/374146/typescript-official.svg" height=12px /> TypeScript
+- <img src="https://www.svgrepo.com/show/374167/vite.svg" height=12px /> Vite.js
 
 ### Future Implementations
 
