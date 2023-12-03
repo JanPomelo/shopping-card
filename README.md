@@ -21,6 +21,9 @@ This project was done for the The Odin Project curriculum in the React Course, w
 
 ## Preview
 
+https://shopping-card-teal.vercel.app/
+
+
 ## Credits
 
 ### API
