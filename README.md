@@ -1,27 +1,40 @@
-# React + TypeScript + Vite
+# Rick and Morty Fake Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This is a fake shop site where you can book hours with all Rick and Morty characters in exchange for Flurbos (the currency in the Rick and Morty series). It includes a shopping card and the possibility to delete bookings.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Motivation & Lessons Learned
 
-## Expanding the ESLint configuration
+This project was done for the The Odin Project curriculum in the React Course, where the task was to build a shop website. The focus during this project was on learning and getting familiar with React Router and deepen the knowledge with React Hooks. Furthermore the use of APIs was required. On top of that, I used Sass and CSS modules for the first time in a React project. It was a very helpful project, even though it took me half an eternety and I didn't really like the shop idea behind that. I restarted the project several times and had my troubles with it.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tools used
 
-- Configure the top-level `parserOptions` property like this:
+    React.js
+    Sass
+    TypeScript
+    Vite.js
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+### Future Implementations
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- actual working daily reset of the limited offers
+
+## Preview
+
+## Credits
+
+### API
+
+The data and images are fetched from the following API:
+
+- https://rickandmortyapi.com/
+
+### SVG
+
+All SVGs for the buttons (music, SFX) are from the following source:
+
+    https://www.svgrepo.com
+
+## License
+
+- [Gnu Public License](https://choosealicense.com/licenses/gpl-3.0/)
