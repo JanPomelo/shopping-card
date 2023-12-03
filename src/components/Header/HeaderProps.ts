@@ -1,7 +1,7 @@
 import Character from "../../types/character";
 
 interface HeaderProps {
-  onClick: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   card: Character[];
 }
 
